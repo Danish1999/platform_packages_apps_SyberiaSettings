@@ -32,6 +32,12 @@
         android:summary="@string/sensor_block_summary"
         android:defaultValue="false" />
 
+        <Preference
+             android:key="wakelock_blocker"
+             android:title="@string/wakelock_blocker_title"
+             android:summary="@string/wakelock_blocker_summary"
+             android:fragment="com.msm.xtended.fragments.WakeLockBlocker" />
+
     <com.syberia.settings.preference.GlobalSettingSwitchPreference
         android:key="aggressive_idle_enabled"
         android:title="@string/aggressive_idle_title"
