@@ -77,9 +77,9 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
         if (footerString != null && footerString != "")
             mFooterString.setText(footerString);
         else {
-            mFooterString.setText("MSM-Xtended");
+            mFooterString.setText("Syberia");
             Settings.System.putString(getActivity().getContentResolver(),
-                    Settings.System.X_FOOTER_TEXT_STRING, "MSM-Xtended");
+                    Settings.System.X_FOOTER_TEXT_STRING, "Syberia");
         }
 
     }
