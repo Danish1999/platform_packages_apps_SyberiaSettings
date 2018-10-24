@@ -745,9 +745,6 @@
     </string-array>
 
    <string-array name="status_bar_logo_style_entries" translatable="false">
-        <item>Xtended Main</item>
-        <item>Xtended Old</item>
-        <item>Xtended Short</item>
         <item>GZR Skull</item>
         <item>GZR Circle</item>
         <item>Batman</item>
@@ -813,8 +810,5 @@
         <item>28</item>
         <item>29</item>
         <item>30</item>
-        <item>31</item>
-        <item>32</item>
-        <item>33</item>
     </string-array>
 </resources>
