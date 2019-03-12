@@ -66,6 +66,12 @@
 
     </PreferenceCategory>
 
+    <Preference
+         android:key="category_custom_header"
+         android:title="@string/statusbar_header_category_title"
+         android:summary="@string/statusbar_header_category_summary"
+         android:fragment="com.syberia.settings.fragments.StatusbarHeader" />
+
     <com.syberia.settings.preference.SecureSettingSwitchPreference
         android:key="qs_show_brightness"
         android:title="@string/qs_show_brightness_title"
