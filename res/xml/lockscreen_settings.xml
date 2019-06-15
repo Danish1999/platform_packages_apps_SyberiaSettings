@@ -198,4 +198,10 @@
         android:summary="@string/visualizer_ui_summary"
         android:fragment="com.syberia.settings.fragments.VisualizerUI" />
 
+    <com.syberia.settings.preference.SystemSettingSwitchPreference
+        android:key="lockscreen_charging_animation"
+        android:title="@string/lockscreen_charging_animation_title"
+        android:summary="@string/lockscreen_charging_animation_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
