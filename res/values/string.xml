@@ -852,4 +852,8 @@
     <string name="center_text_clock_title">Center Text Clock</string>
     <string name="center_text_clock_summary">Place Lock clock in centre</string>
 
+    <!-- Charging animation -->
+    <string name="lockscreen_charging_animation_title">LS Charging animation</string>
+    <string name="lockscreen_charging_animation_summary">Display a Lottie animation when the device is charging</string>
+
 </resources>
