@@ -41,7 +41,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private PreferenceCategory mFODIconPickerCategory;
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+    private static final String LOCK_DATE_FONTS = "lock_date_fonts";
     private ListPreference mLockClockFonts;
+    private ListPreference mLockDateFonts;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -57,6 +59,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
                 getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 34)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
+        // Lockscren Date Fonts
+        mLockDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
+        mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 32)));
+        mLockDateFonts.setSummary(mLockDateFonts.getEntry());
+        mLockDateFonts.setOnPreferenceChangeListener(this);
 
         mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null
@@ -74,6 +82,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements On
                     Integer.valueOf((String) newValue));
             mLockClockFonts.setValue(String.valueOf(newValue));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        } else if (preference == mLockDateFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_DATE_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockDateFonts.setValue(String.valueOf(newValue));
+            mLockDateFonts.setSummary(mLockDateFonts.getEntry());
             return true;
         }
         return false;
