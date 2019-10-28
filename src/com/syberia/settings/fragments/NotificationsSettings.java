@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.res.Resources;
 import com.android.settings.R;
+import android.os.UserHandle;
 
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;

@@ -64,7 +64,7 @@
             android:persistent="false"
             android:dependency="status_bar_custom_header" />
 
-        <com.msm.xtended.preferences.SystemSettingSeekBarPreference
+        <com.syberia.settings.preference.SystemSettingSeekBarPreference
             android:key="status_bar_custom_header_height"
             android:title="@string/status_bar_custom_header_height_title"
             android:max="100"
