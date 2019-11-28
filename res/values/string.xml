@@ -801,4 +801,9 @@
     <string name="status_bar_logo_style_title">Xtended logo style</string>
     <string name="status_bar_logo_color_title">Select color</string>
 
+    <!-- QS Footer Text -->
+    <string name="qs_footer_text_title">QS footer text</string>
+    <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
+
+
 </resources>
