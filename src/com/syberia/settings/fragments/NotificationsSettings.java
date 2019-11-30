@@ -29,7 +29,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto;
 import android.provider.Settings;
-
+import com.syberia.settings.preference.SystemSettingEditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.ListPreference;
@@ -45,8 +45,11 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mQuickPulldown;
     private SystemSettingMasterSwitchPreference mQsBlur;
+    private SystemSettingEditTextPreference mFooterString;
+    private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String QS_BACKGROUND_BLUR = "qs_background_blur";
+
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -66,6 +69,19 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_BACKGROUND_BLUR, 0);
         mQsBlur.setChecked(blur != 0);
         mQsBlur.setOnPreferenceChangeListener(this);
+
+        mFooterString = (SystemSettingEditTextPreference) findPreference(X_FOOTER_TEXT_STRING);
+        mFooterString.setOnPreferenceChangeListener(this);
+        String footerString = Settings.System.getString(getContentResolver(),
+                X_FOOTER_TEXT_STRING);
+        if (footerString != null && footerString != "")
+            mFooterString.setText(footerString);
+        else {
+            mFooterString.setText("MSM-Xtended");
+            Settings.System.putString(getActivity().getContentResolver(),
+                    Settings.System.X_FOOTER_TEXT_STRING, "MSM-Xtended");
+        }
+
     }
 
     @Override
@@ -98,6 +114,17 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
             boolean blur = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_BACKGROUND_BLUR, blur ? 1 : 0);
+            return true;
+        } else if (preference == mFooterString) {
+            String value = (String) newValue;
+            if (value != "" && value != null)
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, value);
+            else {
+                mFooterString.setText("Syberia");
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.X_FOOTER_TEXT_STRING, "Syberia");
+            }
             return true;
         }
         return false;

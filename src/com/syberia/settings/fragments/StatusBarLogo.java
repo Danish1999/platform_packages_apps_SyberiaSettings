@@ -76,7 +76,7 @@ public class StatusBarLogo extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.XTENSIONS;
+        return MetricsProto.MetricsEvent.SYBERIA;
     }
 
     @Override
