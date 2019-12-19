@@ -46,9 +46,12 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
     private ListPreference mQuickPulldown;
     private SystemSettingMasterSwitchPreference mQsBlur;
     private SystemSettingEditTextPreference mFooterString;
+    private CustomSeekBarPreference mQsPanelAlpha;
+
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String QS_BACKGROUND_BLUR = "qs_background_blur";
+    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
 
 
     @Override
@@ -81,6 +84,11 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.X_FOOTER_TEXT_STRING, "Syberia");
         }
+        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
+        int qsPanelAlpha = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255);
+        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
 
     }
 
@@ -125,6 +133,12 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
                 Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.X_FOOTER_TEXT_STRING, "Syberia");
             }
+            return true;
+        } else if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            int trueValue = (int) (((double) bgAlpha / 100) * 255);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
             return true;
         }
         return false;
