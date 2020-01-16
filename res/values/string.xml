@@ -879,4 +879,8 @@
     <string name="qs_panel_alpha_title">Quick Settings opacity</string>
     <string name="qs_panel_alpha_summary">Configure opacity of background</string>
 
+    <!-- Lock icon -->
+    <string name="hide_lockicon_title">Hide lock icon</string>
+    <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
+
 </resources>
