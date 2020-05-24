@@ -143,4 +143,10 @@
             android:dependency="sysui_rounded_fwvals" />
     </PreferenceCategory>
 
+    <com.syberia.settings.preference.SystemSettingSwitchPreference
+         android:key="settings_spacer"
+         android:title="@string/enable_oneui"
+         android:summary="@string/enable_oneui_summary"
+         android:defaultValue="false" />
+
 </PreferenceScreen>
