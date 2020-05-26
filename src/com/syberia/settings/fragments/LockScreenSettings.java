@@ -36,16 +36,27 @@ import com.android.internal.logging.nano.MetricsProto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockScreenSettings extends SettingsPreferenceFragment implements Indexable {
+public class LockScreenSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener, Indexable {
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private PreferenceCategory mFODIconPickerCategory;
+    private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+    private ListPreference mLockClockFonts;
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.lockscreen_settings);
+        ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+        Resources resources = getResources();
+
+        // Lockscren Clock Fonts
+        mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
+        mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 34)));
+        mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+        mLockClockFonts.setOnPreferenceChangeListener(this);
 
         mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null
@@ -53,6 +64,19 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements In
             prefScreen.removePreference(mFODIconPickerCategory);
         }
 
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        if (preference == mLockClockFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockClockFonts.setValue(String.valueOf(newValue));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        }
+        return false;
     }
 
     @Override
