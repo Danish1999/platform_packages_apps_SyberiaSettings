@@ -37,7 +37,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.syberia.settings.preference.SystemSettingMasterSwitchPreference;
-
+import com.syberia.settings.preference.CustomSeekBarPreference;
 import java.util.ArrayList;
 import java.util.List;
 

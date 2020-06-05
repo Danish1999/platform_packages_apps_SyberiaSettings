@@ -812,6 +812,7 @@
         <item>28</item>
         <item>29</item>
         <item>30</item>
+        <item>31</item>
     </string-array>
 
     <!-- Lockscreen clock style -->
@@ -819,6 +820,9 @@
         <item>@string/lockscreen_clock_hide</item>
         <item>@string/lockscreen_clock_default</item>
         <item>@string/lockscreen_clock_default_bold</item>
+        <item>@string/lockscreen_clock_default_accent</item>
+        <item>@string/lockscreen_clock_default_accent_hour</item>
+        <item>@string/lockscreen_clock_default_accent_min</item>
         <item>@string/lockscreen_clock_sammy</item>
         <item>@string/lockscreen_clock_sammy_bold</item>
         <item>@string/lockscreen_clock_sammy_accent_hour</item>
@@ -839,6 +843,9 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
     </string-array>
 
      <!-- Lockscreen date styles -->

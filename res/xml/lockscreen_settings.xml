@@ -81,35 +81,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="lockscreen_weather"
-        android:title="@string/lockscreen_weather_category" />
-
-        <com.syberia.settings.preference.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_enabled"
-            android:title="@string/lockscreen_weather_enabled_title"
-            android:summary="@string/lockscreen_weather_enabled_summary"
-            android:defaultValue="false" />
-
-        <com.syberia.settings.preference.SystemSettingListPreference
-            android:key="lockscreen_weather_style"
-            android:title="@string/lockscreen_weather_style_title"
-            android:dialogTitle="@string/lockscreen_weather_style_title"
-            android:entries="@array/lockscreen_weather_style_entries"
-            android:entryValues="@array/lockscreen_weather_style_values"
-            android:defaultValue="0"
-            android:dependency="lockscreen_weather_enabled"
-            android:summary="%s" />
-
-        <Preference
-            android:key="omnijaws_settings"
-            android:title="@string/lockscreen_weather_settings_title"
-            android:summary="@string/lockscreen_weather_settings_summary"
-            android:fragment="com.syberia.settings.fragments.OmniJawsSettings" />
-
-    </PreferenceCategory>
-
-
     <com.syberia.settings.preference.SecureSettingListPreference
         android:key="lockscreen_clock_selection"
         android:title="@string/lockscreen_clock_title"
@@ -212,5 +183,33 @@
         android:title="@string/visualizer_ui_title"
         android:summary="@string/visualizer_ui_summary"
         android:fragment="com.syberia.settings.fragments.VisualizerUI" />
+
+
+    <PreferenceCategory
+        android:key="lockscreen_weather"
+        android:title="@string/lockscreen_weather_category" />
+
+        <com.syberia.settings.preference.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_enabled"
+            android:title="@string/lockscreen_weather_enabled_title"
+            android:summary="@string/lockscreen_weather_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.syberia.settings.preference.SystemSettingListPreference
+            android:key="lockscreen_weather_style"
+            android:title="@string/lockscreen_weather_style_title"
+            android:dialogTitle="@string/lockscreen_weather_style_title"
+            android:entries="@array/lockscreen_weather_style_entries"
+            android:entryValues="@array/lockscreen_weather_style_values"
+            android:defaultValue="0"
+            android:dependency="lockscreen_weather_enabled"
+            android:summary="%s" />
+
+        <Preference
+            android:key="omnijaws_settings"
+            android:title="@string/lockscreen_weather_settings_title"
+            android:summary="@string/lockscreen_weather_settings_summary"
+            android:fragment="com.syberia.settings.fragments.OmniJawsSettings" />
+
 
 </PreferenceScreen>

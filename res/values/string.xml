@@ -829,6 +829,9 @@
     <string name="lockscreen_clock_sammy_accent_mins">Sammy Accent(minutes)</string>
     <string name="lockscreen_clock_analog_style">Analog Q Style</string>
     <string name="lockscreen_clock_analog_num_style">Analog clock(number)</string>
+    <string name="lockscreen_clock_default_accent">Default (accent)</string>
+    <string name="lockscreen_clock_default_accent_min">Default (accent minutes)</string>
+    <string name="lockscreen_clock_default_accent_hour">Default (accent hours)</string>
 
     <!-- Lockscreen Date styles -->
     <string name="lockscreen_date_selection_title">Date style</string>
